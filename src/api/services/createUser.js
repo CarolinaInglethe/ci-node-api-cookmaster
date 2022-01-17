@@ -1,11 +1,11 @@
 const modelsCreateUser = require('../models/createUser');
-const validateEntriesUser = require('./utils/createUserValidate.js');
+const validateEntriesUser = require('./utils/entriesUserValidate.js');
 const modelsFindEmailUser = require('../models/findEmailUser');
 
 module.exports = async (data) => {
     const validateEntries = await validateEntriesUser(data);
 
-  if (!validateEntries) {
+  if (validateEntries === false) {
     return { message: 'Invalid entries. Try again.' };
   }
 

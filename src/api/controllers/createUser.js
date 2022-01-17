@@ -2,9 +2,7 @@ const servicesCreateUser = require('../services/createUser');
 
 module.exports = async (req, res) => {
   try {
-    const data = req.body;
-
-    const createdUser = await servicesCreateUser(data);
+    const createdUser = await servicesCreateUser(req.body);
 
     if (createdUser.message) {
       return res.status(400).json(createdUser); 

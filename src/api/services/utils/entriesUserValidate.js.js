@@ -1,16 +1,12 @@
-const validateEntriesUser = (data) => {
+module.exports = (data) => {
   if (!data.name || !data.email || !data.password) {
-    return null;
+    return false;
   }
 
   const validEmail = /\S+@\S+\.\S+/;
   if (!validEmail.test(data.email)) {
-    return null;
+    return false;
   }
 
   return true;
 };
-
-module.exports = [
-  validateEntriesUser,
-];
