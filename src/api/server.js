@@ -4,8 +4,10 @@ require('dotenv').config();
 // --------
 
 const controllersCreateUser = require('./controllers/createUser');
+const controllersLogin = require('./controllers/login');
 
 app.post('/users', controllersCreateUser);
+app.post('/login', controllersLogin);
 
 // ---------
 
