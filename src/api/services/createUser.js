@@ -11,7 +11,7 @@ module.exports = async (data) => {
 
   const emailExist = await modelsFindEmailUser(data.email);
   if (emailExist) {
-    return { message: 'Email already registered' };
+    return { message: 'Email already registered', status: 409 };
   }
 
   const createUser = await modelsCreateUser(data);
