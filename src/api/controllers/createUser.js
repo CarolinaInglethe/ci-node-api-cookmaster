@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
 
     const createdUser = await servicesCreateUser(data);
 
-    if (!createdUser) {
+    if (createdUser.message) {
       return res.status(400).json(createdUser); 
     }
 
