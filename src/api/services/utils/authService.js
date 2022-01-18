@@ -13,6 +13,7 @@ const generateToken = (infoUser) => jwt.sign({ infoUser }, mySecret, jwtConfig);
 const verifyToken = (token) => {
   const { infoUser } = jwt.verify(token, mySecret);
 
+  if (!infoUser) return null;
   return infoUser;
 };
 

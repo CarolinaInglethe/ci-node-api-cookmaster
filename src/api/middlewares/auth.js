@@ -6,11 +6,10 @@ module.exports = async (req, res, next) => {
 
     if (!authorization) return res.status(401).json({ message: 'missing auth token' });
 
-    const UserOfToken = authService.verifyToken(authorization);
+    const UserOfToken = await authService.verifyToken(authorization);
 
     if (!UserOfToken) {
-      return res.status(401)
-      .json({ message: 'jwt malformed' }); 
+      return res.status(401).json({ message: 'jwt malformed' }); 
     }
 
     req.user = UserOfToken;
