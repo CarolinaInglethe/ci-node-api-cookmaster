@@ -11,9 +11,9 @@ const generateToken = (infoUser) => jwt.sign({ infoUser }, mySecret, jwtConfig);
 
 // funcao verifica token de usuario e utiliza informaçao decodificada(id):
 const verifyToken = (token) => {
-  const decodedToken = jwt.verify(token, mySecret);
+  const { _id } = jwt.verify(token, mySecret);
 
-  return decodedToken.id;
+  return _id;
 };
 
 module.exports = {
