@@ -3,7 +3,7 @@ const modelsGetAllRecipes = require('../models/getAllRecipes');
 module.exports = async () => {
     const getAllRecipes = await modelsGetAllRecipes();
 
-  if (getAllRecipes === false) {
+  if (!getAllRecipes) {
     return { message: 'not found recipes' };
   }
 
