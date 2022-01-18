@@ -1,5 +1,5 @@
 const modelsFindEmailUser = require('../models/findEmailUser');
-const generateToken = require('./utils/generateToken');
+const authService = require('./utils/authService');
 
 module.exports = async (emailLogin, passwordLogin) => {
   if (!emailLogin || !passwordLogin) {
@@ -17,7 +17,7 @@ module.exports = async (emailLogin, passwordLogin) => {
   const { _id, email, role } = existEmailUser;
 
   // gera token para autenticação caso os dados coincidem:
-  const token = generateToken({ id: _id, email, role });
+  const token = authService.generateToken({ id: _id, email, role });
 
   return { token };
 };
