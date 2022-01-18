@@ -1,10 +1,10 @@
 const connection = require('./connection');
 
 module.exports = async () => {
-    const recipes = await connection()
+    const recipesCollection = await connection()
       .then((db) => db.collection('recipes'));
   
-    const FindRecipes = await recipes.find({});
+    const FindRecipes = await recipesCollection.find({}).toArray();
   
     return FindRecipes;
 };
