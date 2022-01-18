@@ -3,11 +3,11 @@ const servicesDeleteRecipe = require('../services/deleteRecipe');
 module.exports = async (req, res) => {
   try {
     const { id } = req.params;
-    const { authorization } = req.headers;
+    // const { authorization } = req.headers;
     
-    const deleteRecipe = await servicesDeleteRecipe(id, authorization);
+    const deleteRecipe = await servicesDeleteRecipe(id);
 
-    if (!deleteRecipe) return res.status(400).json('err');
+    if (!deleteRecipe) return res.status(400).json(deleteRecipe);
 
     return res.status(204);
   } catch (err) {
