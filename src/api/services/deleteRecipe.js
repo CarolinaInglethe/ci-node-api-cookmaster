@@ -1,12 +1,10 @@
 const modelsDeleteRecipe = require('../models/deleteRecipe');
-// const authService = require('./utils/authService');
+const authService = require('./utils/authService');
 
-module.exports = async (id) => {
-//   const tokenInfoUser = await authService.verifyToken(token);
+module.exports = async (id, authorization) => {
+  const decodedToken = await authService.verifyToken(authorization);
 
-//   if (!tokenInfoUser.id) return ;
+  const deleteRecipe = await modelsDeleteRecipe(id, decodedToken);
 
-  const deleteRecipe = await modelsDeleteRecipe(id);
-
-  return deleteRecipe;
+  if (deleteRecipe) return true;
 };
