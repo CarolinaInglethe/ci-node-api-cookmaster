@@ -8,6 +8,11 @@ module.exports = async (req, res, next) => {
 
     const idUserOfToken = authService.verifyToken(Authorization);
 
+    if (!idUserOfToken) {
+      return res.status(401)
+      .json({ message: 'jwt malformed' }); 
+    }
+
     req.id = idUserOfToken;
 
     next();
