@@ -2,18 +2,18 @@ const authService = require('../services/utils/authService');
 
 module.exports = async (req, res, next) => {
   try {
-    const { Authorization } = req.headers;
+    const { authorization } = req.headers;
 
-    if (!Authorization) return res.status(401).json({ message: 'Token não informado' });
+    if (!authorization) return res.status(401).json({ message: 'missing auth token' });
 
-    const idUserOfToken = authService.verifyToken(Authorization);
+    const UserOfToken = authService.verifyToken(authorization);
 
-    if (!idUserOfToken) {
+    if (!UserOfToken) {
       return res.status(401)
       .json({ message: 'jwt malformed' }); 
     }
 
-    req.id = idUserOfToken;
+    req.user = UserOfToken;
 
     next();
   } catch (err) {
