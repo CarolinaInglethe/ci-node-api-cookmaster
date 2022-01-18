@@ -6,11 +6,15 @@ module.exports = async (data, id) => {
 
     const { name, ingredients, preparation } = data;
 
-    await connection().collection('recipes')
-    .updateOne(
+    const recipes = await connection()
+      .then((db) => db.collection('recipes'));
+  
+    const updateRecipe = await recipes.updateOne(
         { _id: ObjectId(id) },
         { $set: { name, ingredients, preparation } },
     );
+
+    if (!updateRecipe) return null;
 
     return { _id: id, name, ingredients, preparation };
 };
