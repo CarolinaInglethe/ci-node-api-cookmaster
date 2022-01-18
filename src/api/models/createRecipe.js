@@ -6,9 +6,8 @@ module.exports = async (data, id) => {
     const recipes = await connection()
       .then((db) => db.collection('recipes'));
   
-    const recipeCreated = await recipes
+    const { insertedId } = await recipes
     .insertOne({ name, ingredients, preparation, userId: id });
   
-    console.log(recipeCreated);
-    return { recipe: { name, ingredients, preparation, userId: id } };
+    return { recipe: { name, ingredients, preparation, userId: id, _id: insertedId } };
 };
