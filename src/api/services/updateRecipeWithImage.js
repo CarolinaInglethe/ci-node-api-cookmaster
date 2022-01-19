@@ -1,10 +1,15 @@
 const modelsUpdateRecipeWithImage = require('../models/updateRecipeWithImage');
 const authService = require('./utils/authService');
+const modelsGetRecipeById = require('../models/getRecipeById');
 
-module.exports = async (id, image, token) => {
+module.exports = async (id, imagePath, token) => {
   const tokenInfoUser = await authService.verifyToken(token);
 
-  const updateRecipeWithImage = await modelsUpdateRecipeWithImage(id, image);
+  // atualiza receita com a imagem
+  await modelsUpdateRecipeWithImage(id, imagePath);
 
-  return { ...updateRecipeWithImage, userId: tokenInfoUser.id };
+  // busca imagem atualizada pelo id:
+  const getRecipeById = await modelsGetRecipeById(id);
+
+  return { ...getRecipeById, userId: tokenInfoUser.id, image: imagePath };
 };
