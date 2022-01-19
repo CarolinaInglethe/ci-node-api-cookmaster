@@ -11,7 +11,5 @@ module.exports = async (id) => {
   
     if (!recipe) return null;
 
-    const { _id, name, ingredients, preparation, userId } = recipe;
-
-    return { _id, name, ingredients, preparation, userId };
+    return recipe;
 };

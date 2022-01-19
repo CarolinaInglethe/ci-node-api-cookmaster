@@ -7,12 +7,10 @@ module.exports = async (id, image) => {
     const recipes = await connection()
       .then((db) => db.collection('recipes'));
   
-    const updateRecipeWithImage = await recipes.updateOne(
+    const { insertedId } = await recipes.updateOne(
         { _id: ObjectId(id) },
         { $set: { image } },
-    );
+    ); 
 
-    if (!updateRecipeWithImage) return null;
-
-    return updateRecipeWithImage;
+    return insertedId;
 };
