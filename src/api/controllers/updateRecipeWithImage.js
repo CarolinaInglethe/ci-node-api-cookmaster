@@ -6,7 +6,7 @@ module.exports = async (req, res, _next) => {
       const { image } = req;
       const { authorization } = req.headers;
     
-      const updateRecipeWithImage = servicesUpdateRecipeWithImage(
+      const updateRecipeWithImage = await servicesUpdateRecipeWithImage(
         id, image, authorization,
       );
     
