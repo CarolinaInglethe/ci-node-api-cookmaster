@@ -10,7 +10,10 @@ const controllersGetAllRecipes = require('./controllers/getAllRecipes');
 const controllersGetRecipeById = require('./controllers/getRecipeById');
 const controllersUpdateRecipe = require('./controllers/updateRecipe');
 const controllersDeleteRecipe = require('./controllers/deleteRecipe');
+const controllersUpdateRecipeWithImage = require('./controllers/updateRecipeWithImage');
+
 const auth = require('./middlewares/auth');
+const uploadImage = require('./middlewares/uploadImage');
 
 // requesito 1:
 app.post('/users', controllersCreateUser);
@@ -30,6 +33,9 @@ app.get('/recipes/:id', controllersGetRecipeById);
 app.put('/recipes/:id', auth, controllersUpdateRecipe);
 // Requesito 8 :
 app.delete('/recipes/:id', auth, controllersDeleteRecipe);
+// Requesito 9:
+app.put('/recipes/:id/image', auth, 
+uploadImage.single('image'), controllersUpdateRecipeWithImage);
 
 // ---------
 
