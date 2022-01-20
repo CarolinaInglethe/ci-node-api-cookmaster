@@ -8,8 +8,6 @@ module.exports = async (id) => {
       .then((db) => db.collection('recipes'));
   
     const recipe = await recipesCollection.findOne(new ObjectId(id));
-  
-    if (!recipe) return null;
 
     return recipe;
 };

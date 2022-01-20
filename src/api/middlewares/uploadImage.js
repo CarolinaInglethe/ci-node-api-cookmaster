@@ -1,10 +1,9 @@
 const multer = require('multer');
+const path = require('path');
 
 // configuraçoes do destino e nome que tera a imagem baixada:
 const storage = multer.diskStorage({
-  destination: (_req, _file, callback) => {
-    callback(null, '../../uploads');
-  },
+  destination: path.resolve(__dirname, '..', 'uploads'),
   filename: (req, _file, callback) => {
     const { id } = req.params;
     callback(null, `${id}.jpeg`);

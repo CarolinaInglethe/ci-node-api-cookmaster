@@ -5,7 +5,7 @@ module.exports = async (req, res, _next) => {
       const { id } = req.params;
       const { filename } = req.file;
       const { authorization } = req.headers;
-    
+
       const addImageRecipe = await servicesUpdateRecipeWithImage(
         id, filename, authorization,
       );
@@ -16,4 +16,4 @@ module.exports = async (req, res, _next) => {
     } catch (err) {
       return res.status(500).json({ message: 'Erro interno do servidor' });
     }
-};
+}; 

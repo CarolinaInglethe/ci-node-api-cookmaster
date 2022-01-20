@@ -7,7 +7,8 @@ module.exports = async (id, filename, token) => {
 
   const imagePath = `localhost:3000/src/uploads/${filename}`;
 
-  const { name, ingredients, preparation, userId } = await modelsGetRecipeById(id);
+  const getRecipeById = await modelsGetRecipeById(id);
+  const { userId } = getRecipeById;
 
   if (userId !== tokenInfoUser.id && tokenInfoUser.role !== 'admin') {
     return { message: 'missing auth token' };
@@ -15,7 +16,8 @@ module.exports = async (id, filename, token) => {
 
   await modelsUpdateRecipeWithImage(id, imagePath);
 
-  const objRecipeWithImage = { _id: id, name, ingredients, preparation, userId, image: imagePath };
-
-  return objRecipeWithImage;
+  return {
+    ...getRecipeById,
+    image: imagePath,
+  };
 };
