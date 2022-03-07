@@ -21,8 +21,6 @@
 
 ---
 
-# Projeto React gestão de dados
-
 ## O que o Projeto faz ?
 
 operações básicas que se pode fazer em um determinado banco de dados: Criação, Leitura, Atualização e Exclusão (ou `CRUD`, para as pessoas mais íntimas 😜)
