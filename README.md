@@ -3,6 +3,12 @@
 
 ---
 
+# Sobre o Projeto :
+Api feita junto com a trybe .
+Com autenticaçao para suas rotas usando jwt. Possui rota de cadastro , login e acesso a todas receitas ou uma receita especifica.
+Podendo selecionar , editar ou deletar uma receita. Carregar imagem com Multer.
+
+
 # Habilidades
 
 - Entender o que há por dentro de um token de autenticação;
