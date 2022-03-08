@@ -30,14 +30,21 @@ Podendo selecionar , editar ou deletar uma receita. Carregar imagem com Multer.
 ## O que o Projeto faz ?
 
 operações básicas que se pode fazer em um determinado banco de dados: Criação, Leitura, Atualização e Exclusão (ou `CRUD`, para as pessoas mais íntimas 😜)
+- Post  /users  - Cadastra usuario
+- Post /login  - Faz o login 
+- Post /recipes - cria receita
+- get /recipes - pega todas receitas 
+- Get /recipes/:id - Pega uma receita pelo id
+- Put /recipes/:id  -  Edita uma Receita pelo id
+- Delete /recipes/:id - Deleta uma receita pelo id
+- Put /recipes/:id/image - Edita receita e insere imagem
 
-<!-- ## Como rodar o codigo na maquina?
+## Como rodar o codigo na maquina?
 
 Assim que o projeto estiver em sua maquina você deve abrir e  :
--  instalar dependencias : npm intall
+-  instalar dependencias : npm install
 ( aviso:  instalaçoes e versoes trabalhadas em uma máquina linux ubunto/mint)
 
- -->
 
 
 
