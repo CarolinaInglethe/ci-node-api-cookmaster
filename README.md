@@ -44,7 +44,6 @@ operações básicas que se pode fazer em um determinado banco de dados: Criaç�
 Assim que o projeto estiver em sua maquina você deve abrir e  :
 -  instalar dependencias : npm install
 ( aviso:  instalaçoes e versoes trabalhadas em uma máquina linux ubunto/mint)
-
-
+- Colocar Api no ar com nodemon : npm run dev
 
 
